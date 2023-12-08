@@ -29,5 +29,5 @@
 
 ## Решение
 
-См. верстку по ссылке
+См. верстку на хостинге по ссылке
 https://web-dev-html-css.elenivan.ru/seminar02/index.html
