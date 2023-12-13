@@ -20,4 +20,4 @@ jobs:
           key: ${{ secrets.KEY }}
           rm: true
           source: 'prod/*'
-          target: '/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css'
+          target: '/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css/'
