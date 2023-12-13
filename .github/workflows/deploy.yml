@@ -19,5 +19,5 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
           rm: true
-          source: './prod/*'
+          source: 'prod/*'
           target: '/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css'
