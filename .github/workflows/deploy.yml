@@ -12,13 +12,13 @@ jobs:
          - name: Create docker with repo
            uses: actions/checkout@v2
 
-         - name: Set Env
+         - name: Set Enviroment
            run: set -eu
-         - name: Create .ssh folder in docker
+         - name: Create /.ssh folder in docker
            run: mkdir "$HOME/.ssh"
-         - name: Setup key in docker
+         - name: Setup key from git secret to docker OS
            run: echo "${{ secrets.KEY }}" > "$HOME/.ssh/key"
-         - name: Setup responsibillity of key
+         - name: Setup responsibillity of key in docker
            run: chmod 600 "$HOME/.ssh/key"
 
          - name: Copy substructure from prod folder to hosting
