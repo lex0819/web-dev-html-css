@@ -11,10 +11,15 @@ jobs:
       steps:
          - name: Create docker with repo
            uses: actions/checkout@v2
-         # Setup key in docker
-         - run: set -eu
-         - run: mkdir "$HOME/.ssh"
-         - run: echo "${{ secrets.KEY }}" > "$HOME/.ssh/key"
-         - run: chmod 600 "$HOME/.ssh/key"
-         # Copy substructure from prod folder to hosting
-         - run: cd prod && rsync -e "ssh -p ${{ secrets.PORT }} -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.USER }}@${{ secrets.HOST }}:/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css
+
+         - name: Set Env
+           run: set -eu
+         - name: Create .ssh folder in docker
+           run: mkdir "$HOME/.ssh"
+         - name: Setup key in docker
+           run: echo "${{ secrets.KEY }}" > "$HOME/.ssh/key"
+         - name: Setup responsibillity of key
+           run: chmod 600 "$HOME/.ssh/key"
+
+         - name: Copy substructure from prod folder to hosting
+           run: cd prod && rsync -e "ssh -p ${{ secrets.PORT }} -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . ${{ secrets.USER }}@${{ secrets.HOST }}:/home/${{ secrets.USER }}/elenivan.ru/htdocs/web-dev-html-css
