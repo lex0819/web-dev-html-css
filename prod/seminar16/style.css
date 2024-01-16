@@ -122,6 +122,8 @@ body {
 }
 
 .top__title_small {
+  display: block;
+  font-style: normal;
   font-size: 32px;
   font-weight: 700;
 }
